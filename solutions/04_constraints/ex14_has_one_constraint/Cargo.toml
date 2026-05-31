@@ -1,0 +1,14 @@
+[package]
+name    = "ex14_has_one_constraint_solution"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[lib]
+name = "ex14_has_one_constraint"
+
+[dependencies]
+anchor-lang = { workspace = true }
+
+[lints]
+workspace = true

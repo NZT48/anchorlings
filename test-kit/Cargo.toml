@@ -1,0 +1,15 @@
+[package]
+name    = "anchorlings_test_kit"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[lib]
+
+[dependencies]
+anchor-lang         = { workspace = true }
+solana-program-test = { workspace = true }
+solana-sdk          = { workspace = true }
+
+[lints]
+workspace = true

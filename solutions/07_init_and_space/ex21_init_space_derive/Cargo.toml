@@ -1,0 +1,14 @@
+[package]
+name    = "ex21_init_space_derive_solution"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[lib]
+name = "ex21_init_space_derive"
+
+[dependencies]
+anchor-lang = { workspace = true }
+
+[lints]
+workspace = true

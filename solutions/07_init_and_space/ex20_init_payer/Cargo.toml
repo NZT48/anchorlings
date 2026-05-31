@@ -1,0 +1,14 @@
+[package]
+name    = "ex20_init_payer_solution"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[lib]
+name = "ex20_init_payer"
+
+[dependencies]
+anchor-lang = { workspace = true }
+
+[lints]
+workspace = true

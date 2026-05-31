@@ -1,0 +1,14 @@
+[package]
+name    = "ex26_bumps_field_solution"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[lib]
+name = "ex26_bumps_field"
+
+[dependencies]
+anchor-lang = { workspace = true }
+
+[lints]
+workspace = true

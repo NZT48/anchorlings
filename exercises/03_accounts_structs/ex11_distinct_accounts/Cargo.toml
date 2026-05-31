@@ -1,0 +1,13 @@
+[package]
+name    = "ex11_distinct_accounts"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[lib]
+
+[dependencies]
+anchor-lang = { workspace = true }
+
+[lints]
+workspace = true

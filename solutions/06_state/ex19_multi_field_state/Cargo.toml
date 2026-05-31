@@ -1,0 +1,20 @@
+[package]
+name    = "ex19_multi_field_state_solution"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[lib]
+name = "ex19_multi_field_state"
+
+[dependencies]
+anchor-lang = { workspace = true }
+
+[dev-dependencies]
+anchorlings_test_kit = { workspace = true }
+solana-program-test  = { workspace = true }
+solana-sdk           = { workspace = true }
+tokio                = { workspace = true }
+
+[lints]
+workspace = true

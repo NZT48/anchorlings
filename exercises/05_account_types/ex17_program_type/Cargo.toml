@@ -1,0 +1,19 @@
+[package]
+name    = "ex17_program_type"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[lib]
+
+[dependencies]
+anchor-lang = { workspace = true }
+
+[dev-dependencies]
+anchorlings_test_kit = { workspace = true }
+solana-program-test  = { workspace = true }
+solana-sdk           = { workspace = true }
+tokio                = { workspace = true }
+
+[lints]
+workspace = true

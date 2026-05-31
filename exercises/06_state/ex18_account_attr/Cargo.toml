@@ -1,0 +1,13 @@
+[package]
+name    = "ex18_account_attr"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[lib]
+
+[dependencies]
+anchor-lang = { workspace = true }
+
+[lints]
+workspace = true

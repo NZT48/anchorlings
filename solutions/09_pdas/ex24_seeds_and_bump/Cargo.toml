@@ -1,0 +1,14 @@
+[package]
+name    = "ex24_seeds_and_bump_solution"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[lib]
+name = "ex24_seeds_and_bump"
+
+[dependencies]
+anchor-lang = { workspace = true }
+
+[lints]
+workspace = true

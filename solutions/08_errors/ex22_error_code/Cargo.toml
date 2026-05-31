@@ -1,0 +1,14 @@
+[package]
+name    = "ex22_error_code_solution"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[lib]
+name = "ex22_error_code"
+
+[dependencies]
+anchor-lang = { workspace = true }
+
+[lints]
+workspace = true
