@@ -1,17 +1,13 @@
 [workspace]
 resolver = "2"
-members = [
-    "exercises/*/ex*",
-    "solutions/*/ex*",
-    "test-kit",
-]
+members = ["exercises/*/ex*", "solutions/*/ex*", "test-kit"]
 
 [workspace.dependencies]
-anchor-lang          = "=0.30.1"
-solana-program       = "=1.18.26"
-solana-program-test  = "=1.18.26"
-solana-sdk           = "=1.18.26"
-tokio                = { version = "1", features = ["macros", "rt"] }
+anchor-lang = "=0.30.1"
+solana-program = "=1.18.26"
+solana-program-test = "=1.18.26"
+solana-sdk = "=1.18.26"
+tokio = { version = "1", features = ["macros", "rt"] }
 anchorlings_test_kit = { path = "test-kit" }
 
 # anchor-lang's macros emit `#[cfg(feature = "...")]` and `#[cfg(target_os = "solana")]`
@@ -24,16 +20,16 @@ unexpected_cfgs = { level = "warn", check-cfg = [
 ] }
 
 [package]
-name        = "anchorlings"
-version     = "0.1.0"
-edition     = "2021"
-authors     = ["Nikola Todorovic", "Mihajlo Pavlovic"]
+name = "anchorlings"
+version = "0.1.0"
+edition = "2021"
+authors = ["NZT48"]
 description = "A Rustlings-inspired onboarding journey to Solana via the Anchor framework."
-license     = "Apache-2.0"
-readme      = "README.md"
+license = "Apache-2.0"
+readme = "README.md"
 
 [dependencies]
-clap   = { version = "4", features = ["derive"] }
-serde  = { version = "1", features = ["derive"] }
-toml   = "0.8"
+clap = { version = "4", features = ["derive"] }
+serde = { version = "1", features = ["derive"] }
+toml = "0.8"
 anyhow = "1"

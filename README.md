@@ -20,10 +20,6 @@ hit `cargo test`, and… all green. That quick win pulled you deeper into Rust.
 Solana.** Each exercise is a small, broken Anchor program with a `// TODO:`
 comment. You edit, re-run, watch the error change shape, and move on.
 
-30k+ developers finish Rustlings every year, but most never touch Solana —
-new vocabulary (accounts, programs, CPIs), scattered resources, slow
-feedback loops. Anchorlings is the missing bridge.
-
 ## Who is it for?
 
 Rust developers (comfortable with Rustlings-level Rust) who want a tight
@@ -209,10 +205,6 @@ Run `./scripts/verify-solutions.sh` before opening a PR.
 ## License
 
 Licensed under the [Apache License, Version 2.0](LICENSE).
-
-Copyright 2026 Nikola Todorovic, Mihajlo Pavlovic. Contributions are accepted
-under the same license per Section 5 of the Apache License (no separate CLA
-required).
 
 ---
 
