@@ -37,30 +37,40 @@ Today Anchorlings runs from a cloned checkout (a `cargo install
 anchorlings` distribution is on the roadmap):
 
 ```sh
-git clone https://github.com/<owner>/anchorlings
+git clone https://github.com/NZT48/anchorlings
 cd anchorlings
 cargo build -p anchorlings
-./target/debug/anchorlings list   # see the 28 exercises
-./target/debug/anchorlings run    # try the current one
+./target/debug/anchorlings list      # see the 28 exercises
+./target/debug/anchorlings           # enter watch mode (default)
 ```
 
-The first `run` will fetch and compile anchor + solana — expect ~1–2
-minutes once. After that, the inner loop is sub-second.
+The first compile fetches anchor + solana — expect ~1–2 minutes once.
+After that, each iteration is sub-second.
 
 ### The inner loop
 
-```sh
-anchorlings run        # runs the current exercise; fails, points at the error
-# open the file in your editor, fix the TODO
-anchorlings run        # passes → state advances to the next exercise
-anchorlings run        # now runs the next one
+Default mode is **watch**: anchorlings runs the current exercise once, then
+re-runs it on every save inside `exercises/`. On green it auto-advances to
+the next exercise and watches *that* one. The whole feedback loop becomes:
+
+```text
+anchorlings              # starts; runs current; you see the error
+# edit the file in your editor and save
+                         # ← debouncer fires (~1s), re-runs, prints result
+                         # ← on pass, advances to next exercise automatically
+# edit the next file…
+^C                       # quit when you want
 ```
+
+Prefer one-shot? `anchorlings run` runs the current exercise once and
+exits — useful in CI or scripts.
 
 ### Commands
 
 | Command | What it does |
 | --- | --- |
-| `anchorlings` / `anchorlings run` | Runs the current exercise once |
+| `anchorlings` / `anchorlings watch` | Watch mode (default): re-runs the current exercise on every save in `exercises/`, advances on pass |
+| `anchorlings run` | Runs the current exercise once and exits (no watching) |
 | `anchorlings run <name>` | Runs a specific exercise (e.g. `ex04_handler_arg`) |
 | `anchorlings list` | Shows every exercise with done (`✓`) / current marker |
 | `anchorlings hint` | Prints the hint for the current exercise |
@@ -169,6 +179,7 @@ Used in CI; useful locally before opening a PR.
 What works today:
 
 - ✅ 28 exercises authored, all solutions compile, all test-tier solutions pass
+- ✅ **Watch mode** (default): `notify` + 1s debounce, re-runs on save, auto-advances on pass
 - ✅ `anchorlings run / list / hint / reset` CLI
 - ✅ `solana-program-test` ↔ Anchor lifetime bridge via `test-kit`
 - ✅ Per-project state file with auto-advance on green
@@ -176,7 +187,6 @@ What works today:
 
 What's next (PRs welcome):
 
-- ⏳ **Watch mode** — `notify` + 1s debounce, the headline Rustlings UX
 - ⏳ **`anchorlings init`** — scaffold a workspace into an empty dir from embedded resources
 - ⏳ **File restore on `reset`** — replace edited source with the original embedded bytes
 - ⏳ **Fill out the curriculum** — `owner`, `address`, combinations in Ch 04; a real PDA-signed CPI in Ch 10; more state and event work; aiming for ~45 exercises total

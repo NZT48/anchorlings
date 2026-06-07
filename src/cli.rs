@@ -1,6 +1,7 @@
 use crate::info::{Exercise, Info};
 use crate::runner;
 use crate::state::State;
+use crate::watch;
 use anyhow::{Result, anyhow};
 use clap::{Parser, Subcommand};
 use std::path::{Path, PathBuf};
@@ -14,6 +15,8 @@ pub struct Cli {
 
 #[derive(Subcommand)]
 enum Cmd {
+    /// Watch exercises/ and re-run the current exercise on every change
+    Watch,
     /// Run an exercise once (defaults to the current exercise)
     Run { name: Option<String> },
     /// Show all exercises and done/pending status
@@ -31,10 +34,7 @@ impl Cli {
         let mut state = State::load_or_default(&workspace_root)?;
 
         match self.cmd {
-            None => {
-                let ex = pick_current(&info, &state)?;
-                run_one(&workspace_root, &info, &mut state, &ex.name.clone())
-            }
+            None | Some(Cmd::Watch) => watch::watch(&workspace_root, &info, &mut state),
             Some(Cmd::Run { name }) => {
                 let name = match name {
                     Some(n) => n,
